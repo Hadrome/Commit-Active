@@ -2,7 +2,7 @@ name: keep github-green
 
 on:
   schedule:
-    - cron: '0 1,9,11 * * *'  # UTC 01:00,08:00,15:00 → 北京时间 09:00/16:00/23:00
+    - cron: '0 2,7,13 * * *'  # UTC 01:00,08:00,15:00 → 北京时间 10:00/15:00/21:00
   workflow_dispatch: {}
 
 permissions:
@@ -30,9 +30,9 @@ jobs:
           ACTOR_EMAIL: ${{ secrets.ACTOR_EMAIL }}
           PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
           SKIP_PROB: "0.09"
-          MAX_COMMITS: "4"
+          MAX_COMMITS: "3"
           MIN_SLEEP: "15"
-          MAX_SLEEP: "90"
+          MAX_SLEEP: "120"
           MAX_START_DELAY_MINUTES: "60"
         run: |
           chmod +x .github/scripts/random_commit.py
